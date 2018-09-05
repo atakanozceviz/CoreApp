@@ -18,11 +18,7 @@ pipeline {
             steps {
                 script {
                     sh 'cd CoreApp.Tests && dotnet test --logger:trx'
-                    node {
-                        stage ('Collect Test Results'){
-                            step([$class: 'MSTestPublisher', testResultsFile:"CoreApp.Tests/TestResults/*.trx", failOnError: true, keepLongStdio: true])
-                        }
-                    }
+                    step([$class: 'MSTestPublisher', testResultsFile:"CoreApp.Tests/TestResults/*.trx", failOnError: true, keepLongStdio: true])
                 }
             }
         }
