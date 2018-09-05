@@ -1,2 +1,1 @@
 # CoreApp
-Just for test
